@@ -1,6 +1,5 @@
 package model;
 
-    //togepi, piplup, charmander. cyndaquill, turtuig, corsola, totodile.
 public enum AttackTypes {
     WATER_GUN ("Water gun", 40, MonsterType.Water),
     EMBER ("Ember", 40, MonsterType.Fire),
