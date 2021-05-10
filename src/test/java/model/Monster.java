@@ -1,5 +1,8 @@
 package model;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public class Monster {
     private String name;
     private MonsterType type;
@@ -79,4 +82,31 @@ public class Monster {
 
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Monster monster = (Monster) o;
+        return getHp() == monster.getHp() && getAtk() == monster.getAtk() && getDef() == monster.getDef() && getSpd() == monster.getSpd() && Objects.equals(getName(), monster.getName()) && getType() == monster.getType() && Arrays.equals(getMoves(), monster.getMoves());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(getName(), getType(), getHp(), getAtk(), getDef(), getSpd());
+        result = 31 * result + Arrays.hashCode(getMoves());
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Monster{" +
+                "name='" + name + '\'' +
+                ", type=" + type +
+                ", hp=" + hp +
+                ", atk=" + atk +
+                ", def=" + def +
+                ", spd=" + spd +
+                ", moves=" + Arrays.toString(moves) +
+                '}';
+    }
 }

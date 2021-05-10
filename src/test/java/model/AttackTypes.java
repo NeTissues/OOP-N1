@@ -53,4 +53,51 @@ public enum AttackTypes {
     public void setAttackName(String attackName) { this.attackName = attackName; }
     public void setAttackPower(int attackPower) { this.attackPower = attackPower; }
     public void setAttackType(MonsterType attackType) { this.attackType = attackType; }
+
+    public double returnTypeMultiplier(MonsterType attackingMonsterType, MonsterType targetMonsterType){
+        double multiplier;
+        switch (targetMonsterType){
+            case Grass:
+                if (attackingMonsterType == MonsterType.Water)
+                    multiplier = 0.25;
+                else if (attackingMonsterType == MonsterType.Grass)
+                    multiplier = 0.5;
+                else if (attackingMonsterType == MonsterType.Fire)
+                    multiplier = 2;
+                else multiplier = 1;
+                break;
+
+            case Water:
+                if (attackingMonsterType == MonsterType.Fire)
+                    multiplier = 0.25;
+                else if (attackingMonsterType == MonsterType.Water)
+                    multiplier = 0.5;
+                else if (attackingMonsterType == MonsterType.Grass)
+                    multiplier = 2;
+                else multiplier = 1;
+                break;
+
+            case Fire:
+                if (attackingMonsterType == MonsterType.Grass)
+                    multiplier = 0.25;
+                else if (attackingMonsterType == MonsterType.Fire)
+                    multiplier = 0.5;
+                else if (attackingMonsterType == MonsterType.Water)
+                    multiplier = 2;
+                else multiplier = 1;
+                break;
+            default:
+                multiplier = 1;
+        }
+        return multiplier;
+    }
+
+    public double returnMoveDamage(int moveAttackPower, Monster monster, Monster targetMonster){
+    //public double returnMoveDamage(int moveAttackPower, int monsterAtk, MonsterType monsterType, int targetDefense, MonsterType targetMonsterType){
+        int postDefense = monster.getAtk()/targetMonster.getDef();
+        double damage;
+
+        damage = (((moveAttackPower * postDefense)/50)+2) * returnTypeMultiplier(monster.getType(), targetMonster.getType());
+        return damage;
+    }
 }
