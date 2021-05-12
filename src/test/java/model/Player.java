@@ -7,6 +7,7 @@ public class Player {
 
     private String name;
     private ArrayList<Monster> team;
+    private boolean swappingMonster = true;
 
     public Player(String name, ArrayList<Monster> team) {
         this.name = name;
@@ -38,6 +39,26 @@ public class Player {
             if (team.get(i).equals(monsterToBeDeleted))
                 team.remove(monsterToBeDeleted);
         }
+    }
+
+    public int comparePriority(Player target){
+        if (this.swappingMonster)
+            return 3;
+        else if (target.swappingMonster)
+            return 1;
+        else if (this.getTeam().get(0).getSpd() > target.getTeam().get(0).getSpd())
+            return 2;
+        else if (this.getTeam().get(0).getSpd() < target.getTeam().get(0).getSpd())
+            return 0;
+        return 1;
+    }
+
+    public void toggleSwitchingOff(){
+        this.swappingMonster = false;
+    }
+
+    public void isSwitching(){
+        this.swappingMonster = true;
     }
 
     @Override

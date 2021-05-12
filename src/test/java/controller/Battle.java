@@ -4,10 +4,8 @@ import model.AttackTypes;
 import model.Monster;
 import model.Player;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Battle extends MonsterChoice{
@@ -27,7 +25,7 @@ public class Battle extends MonsterChoice{
         return isAlive;
     }
 
-    public static Monster changeMonster(ArrayList<Monster> team, int monsterIndex){
+    public static void changeMonster(ArrayList<Monster> team, int monsterIndex){
         Monster currentMonster, nextMonster;
 
         currentMonster = team.get(0);
@@ -40,10 +38,6 @@ public class Battle extends MonsterChoice{
                 team.remove(team.get(i));
         }
         team.add(monsterIndex, currentMonster);
-
-        if (hasAliveMonster(team) && team.get(0).getHp() > 0)
-            return team.get(0);
-        return currentMonster;
     }
 
     public static void attack(Player currentPlayer, Player targetPlayer){
@@ -97,9 +91,11 @@ public class Battle extends MonsterChoice{
             case 1:
                 //Attack
                 attack(currentPlayer, targetPlayer);
+                currentPlayer.toggleSwitchingOff();
                 break;
             case 2:
                 //Change
+                currentPlayer.isSwitching();
                 System.out.println("Select the pocket monster you want to switch to: ");
                 monsterIndex = scanner.nextInt();
                 changeMonster(currentPlayer.getTeam(), monsterIndex);
@@ -115,9 +111,15 @@ public class Battle extends MonsterChoice{
 
         try{
             do{
-                battlePhase(player1, player2);
-                clearScreen();
-                battlePhase(player2, player1);
+                if (player1.comparePriority(player2) > player2.comparePriority(player1)) {
+                    battlePhase(player1, player2);
+                    clearScreen();
+                    battlePhase(player2, player1);
+                }else{
+                    battlePhase(player2, player1);
+                    clearScreen();
+                    battlePhase(player1, player2);
+                }
             }while (!player1.getTeam().isEmpty() || !player2.getTeam().isEmpty());
         }catch (Exception e){e.printStackTrace();}
     }

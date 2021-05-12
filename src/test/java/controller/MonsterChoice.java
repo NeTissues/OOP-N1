@@ -72,15 +72,4 @@ public class MonsterChoice {
         System.out.println("\nGreat taste");
     }
 
-    public static void main(String[] args) throws IOException, InterruptedException {
-        ArrayList<Monster> oof = new ArrayList<>();
-        Player player1 = new Player("Ash", oof);
-        Player player2 = new Player("Player2", oof);
-
-        choosingMonsters(player1);
-        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();// clears screen, will not clear it inside an IDE
-        choosingMonsters(player2);
-        //listMonsters(initializeMonsterAList());
-    }
-
 }
