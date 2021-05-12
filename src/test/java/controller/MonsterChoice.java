@@ -19,10 +19,12 @@ import java.util.Scanner;
 public class MonsterChoice {
 
     public static ArrayList<Monster> initializeMonsterAList(){
-        Monster grass_starter = new Monster("Bulbdinossaur", MonsterType.Grass, 100, 10, 1, 11, new AttackTypes[]{AttackTypes.ABSORB, AttackTypes.TACKLE});
+        Monster grass_starter = new Monster("Bulbdinossaur", MonsterType.Grass, 10, 10, 1, 11, new AttackTypes[]{AttackTypes.ABSORB, AttackTypes.TACKLE});
         Monster fire_starter = new Monster("charredsalamander", MonsterType.Fire, 100, 12, 1, 9, new AttackTypes[]{AttackTypes.EMBER, AttackTypes.SCRATCH});
         Monster water_starter = new Monster("Tinycrocodile", MonsterType.Water, 100, 11, 1, 10, new AttackTypes[]{AttackTypes.WATER_GUN, AttackTypes.BITE});
         Monster first_encounter = new Monster("Midgetpidgeon", MonsterType.Normal, 60, 8, 1, 12, new AttackTypes[]{AttackTypes.PECK, AttackTypes.HYPER_BEAM});
+        Monster first_egg = new Monster("Egghatchling", MonsterType.Normal, 50, 5, 1, 7, new AttackTypes[]{AttackTypes.METRONOME, AttackTypes.FIRE_PUNCH});
+        Monster first_legendary = new Monster("owtweM", MonsterType.Normal, 150, 15, 1, 13, new AttackTypes[]{AttackTypes.WATER_PUMP, AttackTypes.SOLAR_BEAM});
 
         ArrayList<Monster> allMonsters = new ArrayList<>();
 
@@ -30,6 +32,8 @@ public class MonsterChoice {
         allMonsters.add(fire_starter);
         allMonsters.add(water_starter);
         allMonsters.add(first_encounter);
+        allMonsters.add(first_egg);
+        allMonsters.add(first_legendary);
 
         return allMonsters;
     }
