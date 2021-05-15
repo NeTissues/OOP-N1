@@ -44,6 +44,21 @@ public class MonsterChoice {
         }
     }
 
+    //TODO: Fix this
+    //@BUG: Does not switch to intended monster at times.
+    public static void changeMonster(ArrayList<Monster> team, int monsterIndex){
+        Monster nextMonster = team.get(monsterIndex);
+
+        team.add(0, nextMonster);
+        team.remove(monsterIndex + 1);
+
+        for (int i = 1; i < team.size(); i++){
+            if (team.get(i).equals(nextMonster))
+                team.remove(team.get(i));
+        }
+    }
+
+
     public static void choosingMonsters(Player player){
         Scanner scanner= new Scanner(System.in);
         int playerChoice, aux=3;
