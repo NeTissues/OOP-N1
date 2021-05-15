@@ -25,21 +25,6 @@ public class Battle extends MonsterChoice{
         return isAlive;
     }
 
-    public static void changeMonster(ArrayList<Monster> team, int monsterIndex){
-        Monster currentMonster, nextMonster;
-
-        currentMonster = team.get(0);
-        nextMonster = team.get(monsterIndex);
-
-        team.remove(0);
-        team.add(0, nextMonster);
-        for (int i = 1; i < team.size(); i++){
-            if (team.get(i).equals(team.get(0)))
-                team.remove(team.get(i));
-        }
-        team.add(monsterIndex, currentMonster);
-    }
-
     public static void attack(Player currentPlayer, Player targetPlayer){
         int moveChoice;
         Monster attackingMonster = currentPlayer.getTeam().get(0); Monster targetMonster = targetPlayer.getTeam().get(0);
@@ -79,6 +64,7 @@ public class Battle extends MonsterChoice{
         }
     }
 
+    //TODO: Make this utilize priority before calculating damage
     public static void battlePhase(Player currentPlayer, Player targetPlayer){
         int action, monsterIndex;
         Scanner scanner = new Scanner(System.in);
