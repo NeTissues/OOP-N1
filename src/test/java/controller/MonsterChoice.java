@@ -19,7 +19,7 @@ import java.util.Scanner;
 public class MonsterChoice {
 
     public static ArrayList<Monster> initializeMonsterAList(){
-        Monster grass_starter = new Monster("Bulbdinossaur", MonsterType.Grass, 10, 10, 1, 11, new AttackTypes[]{AttackTypes.ABSORB, AttackTypes.TACKLE});
+        Monster grass_starter = new Monster("Bulbdinossaur", MonsterType.Grass, 100, 10, 1, 11, new AttackTypes[]{AttackTypes.ABSORB, AttackTypes.TACKLE});
         Monster fire_starter = new Monster("charredsalamander", MonsterType.Fire, 100, 12, 1, 9, new AttackTypes[]{AttackTypes.EMBER, AttackTypes.SCRATCH});
         Monster water_starter = new Monster("Tinycrocodile", MonsterType.Water, 100, 11, 1, 10, new AttackTypes[]{AttackTypes.WATER_GUN, AttackTypes.BITE});
         Monster first_encounter = new Monster("Midgetpidgeon", MonsterType.Normal, 60, 8, 1, 12, new AttackTypes[]{AttackTypes.PECK, AttackTypes.HYPER_BEAM});
@@ -44,7 +44,12 @@ public class MonsterChoice {
         }
     }
 
-    public static void changeMonster(ArrayList<Monster> team, int monsterIndex){
+    public static void changeMonster(ArrayList<Monster> team){
+        int monsterIndex;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Select the pocket monster you want to switch to: ");
+        listMonsters(team);
+        monsterIndex = scanner.nextInt();
         Monster nextMonster = team.get(monsterIndex);
 
         team.add(0, nextMonster);
@@ -71,7 +76,7 @@ public class MonsterChoice {
                     System.out.println("Invalid pocket monster! try again");
 
                 System.out.println(aux + " picks remaining");
-            } while (newTeam.size() < 3);
+            } while (newTeam.size() < 2);
         }catch (Exception e){e.printStackTrace();}
         player.setTeam(newTeam);
 
