@@ -7,7 +7,7 @@ public class Player {
 
     private String name;
     private ArrayList<Monster> team;
-    private boolean swappingMonster = true;
+    private boolean swappingMonster = false;
 
     public Player(String name, ArrayList<Monster> team) {
         this.name = name;
@@ -30,8 +30,12 @@ public class Player {
         this.team = team;
     }
 
-    public void addToTeam(ArrayList<Monster> team, Monster monsterToBeAdded){
-        team.add(monsterToBeAdded);
+    public boolean isSwappingMonster() {
+        return swappingMonster;
+    }
+
+    public void setSwappingMonster(boolean swappingMonster) {
+        this.swappingMonster = swappingMonster;
     }
 
     public void removeFromTeam(ArrayList<Monster> team, Monster monsterToBeDeleted){
