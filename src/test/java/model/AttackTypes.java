@@ -93,7 +93,6 @@ public enum AttackTypes {
     }
 
     public double returnMoveDamage(int moveAttackPower, Monster monster, Monster targetMonster){
-    //public double returnMoveDamage(int moveAttackPower, int monsterAtk, MonsterType monsterType, int targetDefense, MonsterType targetMonsterType){
         int postDefense = monster.getAtk()/targetMonster.getDef();
         double damage;
 
