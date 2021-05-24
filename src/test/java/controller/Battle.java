@@ -31,8 +31,8 @@ public class Battle extends MonsterChoice{
      * over the <code>ArrayList</code> checking if there's at least one monster alive in the given ArrayList.
      *
      * @param team ArrayList of Monster , forming the player's team
-     * @return false if empty <code>ArrayList</code> or no monsters with hp greater than 0, true if there's at least one monster alive
-     * on the ArrayList
+     * @return false if empty <code>ArrayList</code> or no monsters with hp greater than 0,
+     * true if there's at least one monster alive on the ArrayList
      */
     public static boolean hasAliveMonster(ArrayList<Monster> team){
         boolean isAlive = false;
@@ -65,7 +65,6 @@ public class Battle extends MonsterChoice{
      * @param attackOption The corresponding Integer of the index of the attack from which the player chose from
      */
     public static void damageCalculation(Player currentPlayer, Player targetPlayer, int attackOption) {
-
         Monster attackingMonster = currentPlayer.getTeam().get(0);
         Monster targetMonster = targetPlayer.getTeam().get(0);
         AttackTypes[] moves = attackingMonster.getMoves();
@@ -95,9 +94,7 @@ public class Battle extends MonsterChoice{
         int moveChoice;
         try {
             Monster attackingMonster = currentPlayer.getTeam().get(0);
-            Monster targetMonster = targetPlayer.getTeam().get(0);
             Scanner scanner = new Scanner(System.in);
-            int enemyHP = targetMonster.getHp();
 
             for (int i = 0; i < attackingMonster.getMoves().length; i++) {
                 System.out.println(i + ": " + attackingMonster.getMoves()[i]);
@@ -126,7 +123,7 @@ public class Battle extends MonsterChoice{
      * @param currentPlayer Player choosing that phase's action
      */
     public static void battlePhase(Player currentPlayer){
-        int action, monsterIndex;
+        int action;
         Scanner scanner = new Scanner(System.in);
 
         listMonsters(currentPlayer.getTeam());
@@ -155,8 +152,6 @@ public class Battle extends MonsterChoice{
      * @param player2 Second player involved in the battle
      */
     public static void startBattle(Player player1, Player player2){
-        Scanner scanner = new Scanner(System.in);
-
         try{
             do{
                 battlePhase(player1);

@@ -3,6 +3,9 @@ package model;
 import java.util.Arrays;
 import java.util.Objects;
 
+/**
+ * @author NeTissues
+ */
 public class Monster {
     private String name;
     private MonsterType type;
@@ -22,64 +25,103 @@ public class Monster {
         this.moves = moves;
     }
 
+    /**
+     * @return The name of the <code>Monster</code>
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @param name String which will assume as the new name of the <code>Monster</code>
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * @return The type of the <code>Monster</code> from the <a href="#{@link}">{@link MonsterType}</a> Enum that
+     * this instance possesses
+     */
     public MonsterType getType() {
         return type;
     }
 
+    /**
+     * @param type <a href="#{@link}">{@link MonsterType}</a> which will assume as the new type of the <code>Monster</code>
+     */
     public void setType(MonsterType type) {
         this.type = type;
     }
 
+    /**
+     * @return The Integer value of the current hp attribute from this instance of Monster
+     */
     public int getHp() {
         return hp;
     }
 
+    /**
+     * @param hp Integer value which will assume as the new hp attribute of the <code>Monster</code>
+     */
     public void setHp(int hp) {
         this.hp = hp;
     }
 
+    /**
+     * @return The Integer value of the current atk attribute from this instance of Monster
+     */
     public int getAtk() {
         return atk;
     }
 
+    /**
+     * @param atk Integer value which will assume as the new atk attribute of the <code>Monster</code>
+     */
     public void setAtk(int atk) {
         this.atk = atk;
     }
 
+    /**
+     * @return The Integer value of the current def attribute from this instance of Monster
+     */
     public int getDef() {
         return def;
     }
 
+    /**
+     * @param def Integer value which will assume as the new def attribute of the <code>Monster</code>
+     */
     public void setDef(int def) {
         this.def = def;
     }
 
+    /**
+     * @return The Integer value of the current spd attribute from this instance of Monster
+     */
     public int getSpd() {
         return spd;
     }
 
+    /**
+     * @param spd Integer value which will assume as the new spd attribute of the <code>Monster</code>
+     */
     public void setSpd(int spd) {
         this.spd = spd;
     }
 
+    /**
+     * @return The Array of <a href="@link"{@link AttackTypes}</a> containing the <code>Monster</code>'s moves
+     */
     public AttackTypes[] getMoves() {
         return moves;
     }
 
+    /**
+     * @param moves Array of <a href="@link"{@link AttackTypes}</a> which will become the new moves set of this <code>Monster</code>
+     */
     public void setMoves(AttackTypes[] moves) {
         this.moves = moves;
-    }
-
-    public void useMove(){
-
     }
 
     @Override
