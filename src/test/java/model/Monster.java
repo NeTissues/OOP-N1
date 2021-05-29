@@ -1,12 +1,14 @@
 package model;
 
+import controller.MonsterFactory;
+
 import java.util.Arrays;
 import java.util.Objects;
 
 /**
  * @author NeTissues
  */
-public class Monster {
+public class Monster implements MonsterFactory {
     private String name;
     private MonsterType type;
     private int hp;
