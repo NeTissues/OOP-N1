@@ -3,6 +3,9 @@ package model;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * @author NeTissues
+ */
 public class Player {
 
     private String name;
