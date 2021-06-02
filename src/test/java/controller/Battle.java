@@ -78,7 +78,7 @@ public class Battle implements BattleInterface, ConsoleInterface {
      * @param currentPlayer Attacking Player performing the move
      * @param targetPlayer Defending Player whose Monster is suffering the move's effect
      */
-    public static void attack(Player currentPlayer, Player targetPlayer){
+    public static void choosingAttack(Player currentPlayer, Player targetPlayer){
         int moveChoice;
         try {
             Monster attackingMonster = currentPlayer.getTeam().get(0);
@@ -146,24 +146,24 @@ public class Battle implements BattleInterface, ConsoleInterface {
                 if(player1.isSwappingMonster() && !player2.isSwappingMonster()){//1 is switching, 2 isn't;
                     BattleInterface.changeMonster(player1.getTeam());
                     ConsoleInterface.clearScreen();
-                    attack(player2, player1);
+                    choosingAttack(player2, player1);
                 }else if (player2.isSwappingMonster() && !player1.isSwappingMonster()){//1 isn't switching, 2 is;
                     BattleInterface.changeMonster(player2.getTeam());
                     ConsoleInterface.clearScreen();
-                    attack(player1, player2);
+                    choosingAttack(player1, player2);
                 }else if (player1.isSwappingMonster() && player2.isSwappingMonster()){//both are switching
                     BattleInterface.changeMonster(player1.getTeam());
                     ConsoleInterface.clearScreen();
                     BattleInterface.changeMonster(player2.getTeam());
                 }else{//neither are switching
                     if (player1.comparePriority(player2) > player2.comparePriority(player1)) {
-                        attack(player1, player2);
+                        choosingAttack(player1, player2);
                         ConsoleInterface.clearScreen();
-                        attack(player2, player1);
+                        choosingAttack(player2, player1);
                     }else{
-                        attack(player2, player1);
+                        choosingAttack(player2, player1);
                         ConsoleInterface.clearScreen();
-                        attack(player1, player2);
+                        choosingAttack(player1, player2);
                     }
                 }
 

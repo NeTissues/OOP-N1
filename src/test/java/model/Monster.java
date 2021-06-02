@@ -8,7 +8,9 @@ import java.util.Objects;
 /**
  * @author NeTissues
  */
-public class Monster implements MonsterFactory {
+public class Monster{
+
+    private int id;
     private String name;
     private MonsterType type;
     private int hp;
@@ -17,7 +19,7 @@ public class Monster implements MonsterFactory {
     private int spd;
     private AttackTypes[] moves; //Each pocket monster needs to have at least 2 unique attacks
 
-    public Monster(String name, MonsterType type, int hp, int atk, int def, int spd, AttackTypes[] moves) {
+    public Monster(int id, String name, MonsterType type, int hp, int atk, int def, int spd, AttackTypes[] moves) {
         this.name = name;
         this.type = type;
         this.hp = hp;
@@ -25,6 +27,34 @@ public class Monster implements MonsterFactory {
         this.def = def;
         this.spd = spd;
         this.moves = moves;
+    }
+
+    /**
+     * Construct to instantiate a new <code>Monster</code> from <a href="@link"{@link MonsterEnum}</a> parameters
+     * @param monsterEnum parameters which the instance of <code>Monster</code> will have
+     */
+    public Monster(MonsterEnum monsterEnum) {
+        this.name = monsterEnum.monsterName;
+        this.type = monsterEnum.type;
+        this.hp = monsterEnum.hp;
+        this.atk = monsterEnum.atk;
+        this.def = monsterEnum.def;
+        this.spd = monsterEnum.spd;
+        this.moves = monsterEnum.moves;
+    }
+
+    /**
+     * @return The Integer value of the current id attribute from this instance of Monster
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id Integer value which will assume as the new id attribute of the <code>Monster</code>
+     */
+    public void setId(int id) {
+        this.id = id;
     }
 
     /**
